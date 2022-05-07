@@ -11,6 +11,22 @@
   
   ### 01 프로젝트를 위한 준비
   > 1.1 개발도구의 준비<br>
+  > *  [Intellij 다운로드](https://www.jetbrains.com/ko-kr/idea/download/)
+  > *  [스프링 부트 Project 생성](https://start.spring.io/)
+  >  - Name: Part1
+  >  - Location: C:\DevPool\springbootprj\Part1
+  >  - Language: Java
+  >  - Type: Gradle
+  >  - Group: com.bitcamp
+  >  - Artfact: ex01
+  >  - Package name: com.bitcamp.ex01
+  >  - JDK: 11 Oracle OpenJDK version 11.0.15
+  >  - Java: 11
+  >  - Package: War
+  >  - Spring Boot: 2.6.7
+  >  - Dependencies: Spring Boot DevTools/Lombok/Spring Web
+
+
   > 1.2 Spring initializer를 이용한 프로젝트 생성<br>
   > 1.3 스프링 프로젝트 실행해보기<br>
   > 1.4 스프링 부트를 단독으로 실행 가능한 파일로 만들기<br>

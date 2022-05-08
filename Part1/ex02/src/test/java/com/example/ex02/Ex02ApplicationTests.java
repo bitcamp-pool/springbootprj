@@ -1,10 +1,10 @@
-package com.bitcamp.ex01;
+package com.example.ex02;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Part1ApplicationTests {
+class Ex02ApplicationTests {
 
     @Test
     void contextLoads() {

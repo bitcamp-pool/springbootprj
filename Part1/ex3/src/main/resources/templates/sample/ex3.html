@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ex2</title>
+  <style>
+    .target {
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <!-- th: if 조건문(sno의 값이 5의 배수들만 출력) -->
+  <!-- th: if th:unless 조건문(sno의 값이 5의 배수들만 출력,
+    그렇지 않으면 SampleDTO의 first를 출력) -->
+  <ul>
+  <!-- 
+    <li 
+      th:each="dto, state : ${list}"
+      th:if="${dto.sno % 5 == 0}"
+    >
+      [[${dto}]]
+    </li> 
+  -->
+  <!-- 
+    <li th:each="dto, state : ${list}">
+      <span th:if="${dto.sno % 5 == 0}" th:text="${'-------'+dto.sno}"></span>
+      <span th:unless="${dto.sno % 5 == 0}" th:text="${dto.first}"></span>
+    </li>
+  -->
+  <!-- 
+    <li th:each="dto, state:${list}" th:text="${dto.sno%5==0} ? ${dto.sno}:${dto.first}">
+    </li>
+  -->
+  <li th:each="dto, state:${list}" th:class="${dto.sno%5==0}? 'target'" th:text="${dto}"
+  ></li>
+
+
+</ul>
+</body>
+</html>

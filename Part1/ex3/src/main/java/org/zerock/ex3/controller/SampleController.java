@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.ex3.dto.SampleDTO;
 
 import java.time.LocalDateTime;
@@ -45,6 +46,7 @@ public class SampleController {
     // th:if, th:unless, 삼항 연산자
     @GetMapping("/ex3")
     public void ex3Model(Model model){
+        log.info("ex3........");
         List<SampleDTO> list = IntStream.rangeClosed(1, 20).asLongStream()
                 .mapToObj(i->{
                     SampleDTO dto = SampleDTO.builder()
@@ -58,6 +60,47 @@ public class SampleController {
         model.addAttribute("list", list);
     }
 
+    // inline 속성
+    @GetMapping("/exinline")
+    public String exInline(RedirectAttributes redirectAttributes){
+        log.info("exInline...........................");
+
+        SampleDTO dto = SampleDTO.builder()
+                .sno(100L)
+                .first("First...100")
+                .last("Last...100")
+                .regTime(LocalDateTime.now())
+                .build();
+        redirectAttributes.addFlashAttribute("result", "success");
+        redirectAttributes.addFlashAttribute("dto", dto);
+
+        return "redirect:/sample/ex3";
+    }
+
+    // link
+    @GetMapping({"/ex99", "/exLink"})
+    public void exModel(Model model){
+        List<SampleDTO> list = IntStream.rangeClosed(1,20).asLongStream()
+                .mapToObj(i->{
+                    SampleDTO dto = SampleDTO.builder()
+                            .sno(i)
+                            .first("First..." + i)
+                            .last("Last..." + i)
+                            .regTime(LocalDateTime.now())
+                            .build();
+                    return dto;
+                }).collect(Collectors.toList());
+        model.addAttribute("list", list);
+    }
+
+    /** Thymeleaf 의 레이아웃
+     *
+     *
+     */
+    @GetMapping({"/exLayout1", "/exLayout2", "/exTemplate", "/exSidebar"})
+    public void exLayout1(){
+        log.info("exLayout................");
+    }
 
 
 }

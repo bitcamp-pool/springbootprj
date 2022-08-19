@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +9,9 @@
 <body>
   <ul>
     <li th:each="dto, state : ${list}">
-      <!-- [[${state.index}]]>>>[[${dto}]] -->
-      [[${state.count}]]>>>[[${dto}]]
+<!--       [[${state.index}]]>>>[[${dto}]]-->
+     <!-- [[${state.count}]]>>>[[${#numbers.formatInteger(dto.sno, 5)}]] [[${dto}]] -->
+     [[${state.count}]]>>>[[${#temporals.format(dto.regTime, 'yyyy/MM/dd')}]] [[${dto}]]
     </li>
   </ul>
 </body>
